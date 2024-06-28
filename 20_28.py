@@ -60,7 +60,7 @@ print("Product of the said two numbers:", result)
 
 def open_file(file_name):
     try:
-        with open(file_name, 'w') as file:
+        with open(file_name, 'r') as file:
             contents = file.read()
             print("File contents:")
             print(contents)
@@ -85,6 +85,12 @@ test_index(nums, index)
 
 #7. Write a Python program that prompts the user to input a number and handles a KeyboardInterrupt exception if the user cancels the input.
 
+try:
+  n = int(input("Input a number: "))
+  print(f"You entered: {n}")
+except KeyboardInterrupt:
+  print("Input canceled by the user.")
+
 #8. Write a Python program that executes division and handles an Arithmetic Error exception if there is an arithmetic error.
 
 def division(dividend, divisor):
@@ -100,6 +106,7 @@ division(dividend, divisor)
 
 #9. Write a Python program that opens a file and handles a UnicodeDecodeError exception if there is an encoding issue.
 
+
 def open_file(filename):
     encoding = input("Input the encoding (ASCII, UTF-16, UTF-8) for the file: ")
     try:
@@ -110,8 +117,18 @@ def open_file(filename):
     except UnicodeDecodeError:
         print("Error: Encoding issue occurred while reading the file.")
 
-
 file_name = input("Input the file name: ")
 open_file(file_name)
 
 #10. Write a Python program that executes a list operation and handles and AttributeError exception if the attribiute does not exist.
+
+def test_list_operation(nums):
+  try:
+    r = len(nums)
+    print(f"Lenght of the list: {r}")
+  except AttributeError:
+    print("Error: The list does not have a 'length' attribute")
+
+nums = [1, 2, 3, 4, 5]
+test_list_operation(nums)
+
